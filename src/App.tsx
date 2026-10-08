@@ -35,9 +35,14 @@ function StorePage() {
     <>
       <header className="header">
         <h1>🌭 Salsicha Market</h1>
-        <button className="btn" onClick={() => setCartOpen(true)}>
-          Carrinho ({cart.length})
-        </button>
+        <div className="header-buttons">
+          <a href="/login" className="btn">
+            Entrar
+          </a>
+          <button className="btn" onClick={() => setCartOpen(true)}>
+            Carrinho ({cart.length})
+          </button>
+        </div>
       </header>
 
       <main className="container">
