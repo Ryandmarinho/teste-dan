@@ -3,6 +3,7 @@ import { dogs } from "./data/dogs";
 import DogCard from "./components/DogCard";
 import Cart from "./components/Cart";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import type { Coat, Size } from "./types";
 
 type Sort = "relevance" | "price-asc" | "price-desc";
@@ -38,6 +39,9 @@ function StorePage() {
         <div className="header-buttons">
           <a href="/login" className="btn">
             Entrar
+          </a>
+          <a href="/cadastro" className="btn">
+            Cadastre-se
           </a>
           <button className="btn" onClick={() => setCartOpen(true)}>
             Carrinho ({cart.length})
@@ -101,6 +105,10 @@ export default function App() {
 
   if (path === "/login") {
     return <LoginPage />;
+  }
+
+  if (path === "/cadastro") {
+    return <SignupPage />;
   }
 
   return <StorePage />;
