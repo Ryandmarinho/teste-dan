@@ -2,11 +2,12 @@ import { useMemo, useState } from "react";
 import { dogs } from "./data/dogs";
 import DogCard from "./components/DogCard";
 import Cart from "./components/Cart";
+import LoginPage from "./pages/LoginPage";
 import type { Coat, Size } from "./types";
 
 type Sort = "relevance" | "price-asc" | "price-desc";
 
-export default function App() {
+function StorePage() {
   const [search, setSearch] = useState("");
   const [size, setSize] = useState<Size | "">("");
   const [coat, setCoat] = useState<Coat | "">("");
@@ -88,4 +89,14 @@ export default function App() {
       )}
     </>
   );
+}
+
+export default function App() {
+  const path = window.location.pathname;
+
+  if (path === "/login") {
+    return <LoginPage />;
+  }
+
+  return <StorePage />;
 }
