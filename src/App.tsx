@@ -2,11 +2,13 @@ import { useMemo, useState } from "react";
 import { dogs } from "./data/dogs";
 import DogCard from "./components/DogCard";
 import Cart from "./components/Cart";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import type { Coat, Size } from "./types";
 
 type Sort = "relevance" | "price-asc" | "price-desc";
 
-export default function App() {
+function StorePage() {
   const [search, setSearch] = useState("");
   const [size, setSize] = useState<Size | "">("");
   const [coat, setCoat] = useState<Coat | "">("");
@@ -34,9 +36,17 @@ export default function App() {
     <>
       <header className="header">
         <h1>🌭 Salsicha Market</h1>
-        <button className="btn" onClick={() => setCartOpen(true)}>
-          Carrinho ({cart.length})
-        </button>
+        <div className="header-buttons">
+          <a href="/login" className="btn">
+            Entrar
+          </a>
+          <a href="/cadastro" className="btn">
+            Cadastre-se
+          </a>
+          <button className="btn" onClick={() => setCartOpen(true)}>
+            Carrinho ({cart.length})
+          </button>
+        </div>
       </header>
 
       <main className="container">
@@ -88,4 +98,18 @@ export default function App() {
       )}
     </>
   );
+}
+
+export default function App() {
+  const path = window.location.pathname;
+
+  if (path === "/login") {
+    return <LoginPage />;
+  }
+
+  if (path === "/cadastro") {
+    return <SignupPage />;
+  }
+
+  return <StorePage />;
 }

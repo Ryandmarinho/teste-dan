@@ -2,6 +2,8 @@
 body { margin: 0; font-family: system-ui, sans-serif; background: #faf7f2; color: #2b2118; }
 .header { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: #8b4513; color: #fff; position: sticky; top: 0; z-index: 10; }
 .header h1 { margin: 0; font-size: 1.4rem; }
+.header-buttons { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.header-buttons .btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
 .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
 .filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
 .filters input, .filters select { padding: 10px 12px; border: 1px solid #d6c9b8; border-radius: 8px; font-size: 1rem; background: #fff; }
